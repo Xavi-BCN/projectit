@@ -1,0 +1,52 @@
+*{
+  scroll-behavior: smooth
+}
+
+.App{
+  min-height: 100vh;
+  background-color: #39445a;
+  color: white;
+  padding-top: 130px; 
+  padding-bottom: 70px;
+}
+
+
+@media (max-width: 700px){
+  .App{
+    padding-top: 70px;
+  }
+}
+
+.pageTitle{
+  margin: 25px 25px 50px 25px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 2vw;
+  padding: 4px;
+  border-radius: 50px;
+  color: rgb(174, 252, 252);
+  box-shadow: -1px 1px 41px 28px rgba(95,134,250,0.6);
+}
+
+.text-wellcome{
+  box-shadow: -1px 1px 41px 28px rgba(95,134,250,0.6);
+  background-color: rgb(19, 24, 39);
+  font-weight: 300;
+  color: rgb(172, 209, 241);
+  padding: 10px;
+  border-radius: 5%; 
+}
+
+.note{
+  font-size: smaller;
+  text-align: center;
+}
+
+@media (max-width: 1000px){
+  .pageTitle{
+    font-size: 6.4vw; 
+  }
+}
