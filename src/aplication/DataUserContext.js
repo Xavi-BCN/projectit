@@ -229,20 +229,20 @@ export const DataUserContextProvider = ({ children }) => {
       setFavMoviesUser(response.data)
     } catch (error) {
       setShowLoading(false)
-      console.log(error.request.status); 
+      //console.log(error.request.status); 
       //error.request.status === 404 ? TimedKO("No hay favoritos","warning") : TimedKO(error.message)
       error.request.status === 404 ? setFavMoviesUser([]) : TimedKO(error.message)
     }
   }
 
   const deleteFavUser = async (idMovie, userMail) => {
-    console.log(idMovie,userMail)
+    //console.log(idMovie,userMail)
     try {
       const response = await delFavsUserRequest(idMovie,userMail)
       loadfavsUser(userMail)
      
     } catch (error) {
-      console.error(error);
+      //console.error(error);
       
     }
   }

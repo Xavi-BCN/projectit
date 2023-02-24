@@ -36,6 +36,8 @@ const SelectedMovie = () => {
     }
   }
 
+  console.log(movie);
+
   return (
     <div className="container">
       {movie ? (
@@ -120,6 +122,7 @@ const SelectedMovie = () => {
                       MovieTitle={movie.title}
                       MovieName={movie.name}
                       Poster={movie.backdrop_path}
+                      Date={movie.release_date}
                     />
                   )}
                   <ButtonShareByMail MovieId={MovieId} MovieType={MovieType} />

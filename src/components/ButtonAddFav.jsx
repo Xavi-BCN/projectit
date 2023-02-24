@@ -3,7 +3,7 @@ import { DataUserContext } from "../aplication/DataUserContext";
 import {AiFillHeart} from 'react-icons/ai'
 import { convertLength } from '@mui/material/styles/cssUtils';
 
-const ButtonAddFav = ({MovieId, MovieType, MovieTitle, MovieName, Poster}) => {
+const ButtonAddFav = ({MovieId, MovieType, MovieTitle, MovieName, Poster, Date}) => {
   const { saveFav, userMail, favMoviesUser } = useContext(DataUserContext)
   
   if(!MovieTitle){
@@ -12,13 +12,12 @@ const ButtonAddFav = ({MovieId, MovieType, MovieTitle, MovieName, Poster}) => {
     MovieTitle = MovieTitle
   }
 
-  let fav = { mail: userMail, title: MovieTitle, idpeli: MovieId, type: MovieType, poster: Poster }
+  
+  let fav = { mail: userMail, title: MovieTitle, idpeli: MovieId, type: MovieType, poster: Poster, estreno: Date }
   
  
-
    return (
     <>
-     
       <button
         onClick={()=> saveFav(fav)}
         className="btn bg-black ms-2 "

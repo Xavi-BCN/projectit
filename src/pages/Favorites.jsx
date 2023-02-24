@@ -9,8 +9,10 @@ import ButtonDelFav from "../components/ButtonDelFav";
 import ButtonSchudule from "../components/ButtonSchudule"
 import { img_300 } from "../aplication/config";
 import { Loading } from '../components/Loading';
-import ButtonNoViewed from '../components/ButtonNoViewed';
 import ButtonViewed from '../components/ButtonViewed';
+import ButtonInfoType from '../components/ButtonInfoType';
+
+
 
 const Favorites = () => {
   const { userMail, favMoviesUser, loadfavsUser, showLoading, setShowLoading } = useContext(DataUserContext)
@@ -19,7 +21,7 @@ const Favorites = () => {
   }, [favMoviesUser]);
 
   const checkfavs = () => {
-    if(favMoviesUser.length === 0) return <h2 className='text-danger ' >NO HAY FAVORITOS</h2>
+    if(favMoviesUser.length === 0) return <h2 className='text-danger ' style={{textAlign: "center"}} >NO HAY FAVORITOS</h2>
   }
 
   return (
@@ -45,7 +47,7 @@ const Favorites = () => {
                 <ButtonSchudule title={item.title}/>
               </div>
               <div className='col'>
-                <ButtonNoViewed />
+                <ButtonInfoType type={item.type}/>
               </div>
               <div className='col'>
                 <ButtonViewed />

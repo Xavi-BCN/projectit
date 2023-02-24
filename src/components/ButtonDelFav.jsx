@@ -13,7 +13,7 @@ const ButtonDelFav = ({idMovie }) => {
       
       <button
         onClick={()=> deleteFavUser(idMovie,userMail)}
-        className="btn ms-1 w-25"
+        className="btn ms-1 w-25 border-0"
         type="button"
         ><RiDeleteBin2Fill color='red' size={25}></RiDeleteBin2Fill>
         </button>
