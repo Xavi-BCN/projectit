@@ -9,12 +9,11 @@ import '../styles/Trending.css'
 
 const Series = () => {
 
-  const { userGlobal, getSeries, series, page, setPage, numOfpages, selectedGenres, setSelectedGenres, genres, setGenres, genreforURL } = useContext(DataUserContext)
+  const { userGlobal, getSeries, series, page, setPage, numOfpages, genreforURL } = useContext(DataUserContext)
 
   useEffect(() => {
     getSeries()
   }, [page, genreforURL])
-
 
   if (!userGlobal) {
     TimedKO('Hace falta ser usuario registrado para ver series de TV!', 'warning')
@@ -22,33 +21,26 @@ const Series = () => {
   }
   return (
     <>
-      {/* <div className='container p-1'> */}
-        <div className="pageTitle">Series</div>
-        <Genres
-          type='tv'
-          selectedGenres={selectedGenres}
-          setSelectedGenres={setSelectedGenres}
-          genres={genres}
-          setGenres={setGenres}
-          setPage={setPage}
-        />
-        <div>
-          {numOfpages > 1 && (<CustomPagination setPage={setPage} numOfpages={numOfpages} />)}
-        </div>
-        <div className="trending">
-          {series && series.map((s) => (
-            <SingleCard
-              key={s.id}
-              id={s.id}
-              poster={s.poster_path}
-              title={s.name}
-              date={s.first_air_date}
-              media_type='tv'
-              vote_average={s.vote_average}
-            />
-          ))}
-        </div>
-      {/* </div> */}
+      <div className="pageTitle">Series</div>
+      <Genres
+        type='tv'
+      />
+      <div>
+        {numOfpages > 1 && (<CustomPagination setPage={setPage} numOfpages={numOfpages} />)}
+      </div>
+      <div className="trending">
+        {series && series.map((s) => (
+          <SingleCard
+            key={s.id}
+            id={s.id}
+            poster={s.poster_path}
+            title={s.name}
+            date={s.first_air_date}
+            media_type='tv'
+            vote_average={s.vote_average}
+          />
+        ))}
+      </div>
     </>
   )
 }

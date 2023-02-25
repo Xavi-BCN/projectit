@@ -1,28 +1,17 @@
-import { useContext, useState } from 'react';
-import { DataUserContext } from "../aplication/DataUserContext";
+const ButtonShareByMail = ({ MovieId, MovieType }) => {
 
-const ButtonShareByMail = ({MovieId , MovieType}) => {
-  
-  // const { saveFavs } = useContext(DataUserContext)
   const sendMail = () => {
-    
     window.location.href = `mailto:?subject=Te comparto esta peli por si es de tu interes&body=https://xcl.es/#/SelectedMovie/${MovieId}/${MovieType}`;
-    
-    
-    /* window.open(`mailto:example@example.com?subject=Te comparto esta peli por si es de tu interes https://xcl.es/#/SelectedMovie/${MovieId}/${MovieType}`); */
   };
 
-  
-   return (
+  return (
     <>
       <button
         onClick={sendMail}
         className="btn btn-info ms-2 "
         type="button"
-        >Send Mail
-        </button>
-        
-        
+      >Send Mail
+      </button>
     </>
   )
 }

@@ -4,7 +4,6 @@ import { DataUserContext } from "../aplication/DataUserContext";
 import { Badge } from "@mui/material";
 import ButtonAddFav from "./ButtonAddFav";
 import ButtonShareByMail from "./ButtonShareByMail";
-import ButtonShareByWhatsapp from "./ButtonShareByWhatsapp";
 import "../styles/SelectedMovie.css";
 import YouTube from "react-youtube";
 
@@ -13,8 +12,6 @@ const SelectedMovie = () => {
     userGlobal,
     movie,
     img_path,
-    playing,
-    setPlaying,
     favMoviesUser,
     trailer,
     getMovie,

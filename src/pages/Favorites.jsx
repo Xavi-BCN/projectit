@@ -24,7 +24,6 @@ const Favorites = () => {
 
   return (
     <>
-      
       <div className="pageTitle">Favoritos
         <img src={fav} alt="Fav" width="50px"
           // height="5%"
@@ -33,7 +32,9 @@ const Favorites = () => {
       </div>
 
       {checkfavs()}
+      
       <div className="trending" >
+       
         {favMoviesUser && favMoviesUser.map(item => (
           <>
           <div key={item.title} className=' '>
@@ -48,7 +49,7 @@ const Favorites = () => {
                 <ButtonInfoType type={item.type}/>
               </div>
               <div className='col'>
-                <ButtonViewed />
+                {/* <ButtonViewed /> */}
               </div>
             </div>
             <div className='row' >
@@ -71,3 +72,5 @@ const Favorites = () => {
 }
 
 export default Favorites
+
+/* window.location.href = `mailto:?subject=Te comparto esta peli por si es de tu interes&body=https://xcl.es/#/SelectedMovie/${MovieId}/${MovieType}`; */
