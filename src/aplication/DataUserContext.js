@@ -119,6 +119,7 @@ export const DataUserContextProvider = ({ children }) => {
 
   const getComing = async () => {
     const { data } = await axios.get(`${baseURL}/discover/movie?api_key=${apiKey}&language=${language_es}&region=ES&primary_release_date.gte=${year}-${month}-${day}&primary_release_date.lte=${year+3}-12-31&with_original_language=en|fr|es|de|pt|fr|it&sort_by=primary_release_date.asc&page=${page}`);
+    
     setNumOfPages(data.total_pages)
     setComing(data.results)
   }

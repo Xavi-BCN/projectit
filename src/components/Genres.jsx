@@ -30,7 +30,7 @@ const Genres = ({ type }) => {
       <div className="container pb-1">
         {selectedGenres && selectedGenres.map((sg) => (
           <Chip
-            Key={sg.id}
+            key={sg.id}
             label={sg.name}
             style={{ margin: 2 }}
             size='small'
@@ -40,7 +40,7 @@ const Genres = ({ type }) => {
         )).sort()}
         {genres && genres.map((g) => (
           <Chip
-            Key={g.name}
+            key={g.name}
             label={g.name}
             style={{ margin: 2 }}
             size='small'

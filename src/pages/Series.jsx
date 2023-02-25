@@ -9,7 +9,11 @@ import '../styles/Trending.css'
 
 const Series = () => {
 
-  const { userGlobal, getSeries, series, page, setPage, numOfpages, genreforURL } = useContext(DataUserContext)
+  const { userGlobal, getSeries, series, page, setSelectedGenres, setPage, numOfpages, genreforURL } = useContext(DataUserContext)
+  
+  useEffect(() => {
+    setSelectedGenres([])
+  }, [])
 
   useEffect(() => {
     getSeries()

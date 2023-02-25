@@ -8,7 +8,12 @@ import CustomPagination from '../components/CustomPagination';
 import '../styles/Trending.css'
 
 const Movies = () => {
-  const { userGlobal, getMovies, movies, page, setPage, numOfpages, genreforURL } = useContext(DataUserContext)
+  const { userGlobal, getMovies, setSelectedGenres, movies, page, setPage, numOfpages, genreforURL } = useContext(DataUserContext)
+
+useEffect(() => {
+  setSelectedGenres([])
+}, [])
+
 
   useEffect(() => {
     getMovies()

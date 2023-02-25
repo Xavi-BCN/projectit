@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { DataUserContext } from '../aplication/DataUserContext';
 import { Navigate} from 'react-router-dom';
-import { TimedKO } from '../aplication/messages'
+import { TimedKO, msgKO } from '../aplication/messages'
 import SingleCard from '../components/SingleCard'
 import CustomPagination from '../components/CustomPagination';
 import '../styles/Trending.css'
@@ -11,7 +11,11 @@ const Coming = () => {
   const { userGlobal, getComing, coming, page, setPage, numOfpages } = useContext(DataUserContext);
 
   useEffect(()=>{
-    getComing()
+    try{
+      getComing()
+    }catch{
+      msgKO('No se han encontrado datos de coming')
+    }
   },[page])
 
   if (!userGlobal) {

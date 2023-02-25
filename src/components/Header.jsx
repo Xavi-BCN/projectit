@@ -25,7 +25,7 @@ const Header = () => {
             <>
               {/* <p className="me-3">{userMail}</p> */}
               <Logo />
-              <button type="button" class="btn btn-outline-warning me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title={`Estas validado como: ${userMail}`}><AiOutlineUser /></button>
+              <button type="button" className="btn btn-outline-warning me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title={`Estas validado como: ${userMail}`}><AiOutlineUser /></button>
               <ButtonFavs />
               <ButtonSearchs />
               <ButtonLogout />    

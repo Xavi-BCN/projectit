@@ -18,7 +18,7 @@ const SelectedMovie = () => {
     setValueMenu,
   } = useContext(DataUserContext);
   const { MovieId, MovieType } = useParams();
-
+  
   useEffect(() => {
     getMovie(MovieId, MovieType);
     setValueMenu(5);
@@ -44,21 +44,30 @@ const SelectedMovie = () => {
             backgroundImage: `url("${img_path}${movie.backdrop_path || movie.poster_path}")`,
           }}
         >
-          {/* <div className="bg-white "> */}
+          <div className="bg-white ">
 
          
 
-            {/* {console.log(MovieType)} */}
-            {/*  {movie.production_companies && movie.production_companies.length === 0 
-              ? (<>Sin info de productora</>)
-             :(<img className='p-2' width={100} src={`${img_path}${movie.production_companies[0].logo_path}`} alt="e" />)
-             }   */}
-            {/*  {MovieType === "tv" &&  movie.networks.length != 0 ?
-              (<img className='p-2' width={100} src={`${img_path}${movie.networks[0].logo_path}`} alt="" />)
-              :
-              (<></>)
-            } */}
-          {/* </div> */}
+            {console.log(MovieType)}
+            {/* For movies */}
+             {MovieType === "movie" && 
+              (!Boolean(movie?.production_companies?.length) 
+                  ? (<>Sin info de productora</>)
+                  :(<img className='p-2' width={100} src={`${img_path}${movie.production_companies[0].logo_path}`} alt="e" />)
+              )
+             }
+             {/* For TV */}
+             {MovieType === "tv" && 
+             (<>
+              {(!Boolean(movie?.production_companies?.length) 
+                  ? (<>Sin info de productora</>)
+                  :(<img className='p-2' width={100} src={`${img_path}${movie.production_companies[0].logo_path}`} alt="e" />)
+              )}
+              {(Boolean(movie?.networks?.length) &&
+              (<img className='p-2' width={100} src={`${img_path}${movie.networks[0].logo_path}`} alt="" />))}
+            </>)
+            }
+          </div>
 
 
 

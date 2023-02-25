@@ -32,7 +32,11 @@ export const App = () => {
       if (usuarioFirebase) {
         setUserGlobal(usuarioFirebase)
         setUserMail(usuarioFirebase.email)
+        
         loadfavsUser(usuarioFirebase.email)
+        
+          
+        
       } else {
         setUserGlobal("")
         setUserMail("")
