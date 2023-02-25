@@ -102,17 +102,6 @@ export const DataUserContextProvider = ({ children }) => {
     setTrending(data.results)
   } */
 
-  /* function getNow() {
-    const current = new Date();
-    const hour = current.getHours()
-    let min = current.getMinutes()
-    if( min < 10 ) {
-      min = '0'+ min
-    }
-    date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()} Hora ${hour}:${min}`;
-    return setDateBudget(date);
-  } */
-
   let current = new Date();
   let year = current.getFullYear(); 
   let month = current.getMonth() + 1;
@@ -127,7 +116,7 @@ export const DataUserContextProvider = ({ children }) => {
   } 
 
   const getComing = async () => {
-    const { data } = await axios.get(`${baseURL}/discover/movie?api_key=${apiKey}&language=${language_es}&region=ES&primary_release_date.gte=${year}-${month}-${day}&primary_release_date.lte=${year+2}-12-31&with_original_language=en|fr|es|de|pt&sort_by=primary_release_date.asc&page=${page}`);
+    const { data } = await axios.get(`${baseURL}/discover/movie?api_key=${apiKey}&language=${language_es}&region=ES&primary_release_date.gte=${year}-${month}-${day}&primary_release_date.lte=${year+3}-12-31&with_original_language=en|fr|es|de|pt|fr|it&sort_by=primary_release_date.asc&page=${page}`);
     setNumOfPages(data.total_pages)
     setComing(data.results)
   }
@@ -140,9 +129,7 @@ export const DataUserContextProvider = ({ children }) => {
   } */
 
   const getMovie = async (id, media_type) => {
-    console.log(id)
-    console.log(media_type)
-
+    
     const { data } = await axios.get(`${baseURL}/${media_type}/${id}`, {
       params: {
         api_key: apiKey,
@@ -158,7 +145,6 @@ export const DataUserContextProvider = ({ children }) => {
       setTrailer(trailer ? trailer : data.videos.results[0])
     }
     setMovie(data)
-    //console.log(data)
   };
 
   const getMovies = async (searchKey) => {
@@ -187,7 +173,7 @@ export const DataUserContextProvider = ({ children }) => {
         language: language_es,
         with_genres: genreforURL,
         //include_adult: "true",
-        with_original_language: "en|fr|es|de|pt",
+        with_original_language: "en|fr|es|de|pt|it",
         watch_region: "ES",
         sort_by: "popularity.desc",
         region: "ES",
@@ -210,11 +196,9 @@ export const DataUserContextProvider = ({ children }) => {
     }
   }
 
-
   const saveFav = async (fav) => {
     try {
       const response = await createFavRequest(fav)
-      console.log(response.status)
       TimedOKAddFav(`Perfecto, añadida a tus favoritas.`)
       loadfavsUser(userMail)
     } catch (error) {
@@ -229,21 +213,15 @@ export const DataUserContextProvider = ({ children }) => {
       setFavMoviesUser(response.data)
     } catch (error) {
       setShowLoading(false)
-      //console.log(error.request.status); 
-      //error.request.status === 404 ? TimedKO("No hay favoritos","warning") : TimedKO(error.message)
       error.request.status === 404 ? setFavMoviesUser([]) : TimedKO(error.message)
     }
   }
 
   const deleteFavUser = async (idMovie, userMail) => {
-    //console.log(idMovie,userMail)
     try {
       const response = await delFavsUserRequest(idMovie,userMail)
       loadfavsUser(userMail)
-     
     } catch (error) {
-      //console.error(error);
-      
     }
   }
 

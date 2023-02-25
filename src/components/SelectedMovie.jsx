@@ -37,17 +37,20 @@ const SelectedMovie = () => {
   }
 
   console.log(movie);
-
+ 
   return (
     <div className="container">
       {movie ? (
         <div
           className="viewtrailer rounded"
           style={{
-            backgroundImage: `url("${img_path}${movie.backdrop_path}")`,
+            backgroundImage: `url("${img_path}${movie.backdrop_path || movie.poster_path}")`,
           }}
         >
           <div className="bg-white ">
+
+          //*** ALBERT ******* */ PENDENT DE AVERIGUAR (FUNCIONA ARA SI ARA NO) 
+
             {/* {console.log(MovieType)} */}
             {/*  {movie.production_companies && movie.production_companies.length === 0 
               ? (<>Sin info de productora</>)

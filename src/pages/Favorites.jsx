@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom'
 import fav from "../assets/img/ninopeli3D.png";
 import { useContext, useEffect, useState } from "react";
 import { DataUserContext } from '../aplication/DataUserContext';
-// import '../styles/CardMovie.css'
-// import '../styles/Trending.css'
 import "../styles/favorites.css"
 import ButtonDelFav from "../components/ButtonDelFav";
 import ButtonSchudule from "../components/ButtonSchudule"
@@ -38,7 +36,7 @@ const Favorites = () => {
       <div className="trending" >
         {favMoviesUser && favMoviesUser.map(item => (
           <>
-          <div className=' '>
+          <div key={item.title} className=' '>
             <div className='row start-0'>
               <div className='col'>
                 <ButtonDelFav idMovie={item.idpeli} />
