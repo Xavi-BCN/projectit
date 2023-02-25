@@ -10,6 +10,7 @@ const ButtonShareByMail = ({ MovieId, MovieType }) => {
         onClick={sendMail}
         className="btn btn-info ms-2 "
         type="button"
+        data-bs-toggle="tooltip" data-bs-placement="top" title="Abre el correo y añade el enlace a esta página"
       >Send Mail
       </button>
     </>

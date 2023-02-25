@@ -8,6 +8,8 @@ import ButtonTest from "./ButtonTest";
 import Logo from './Logo'
 import "../styles/Header.css";
 import ButtonFavs from "./ButtonFavs"
+import { AiOutlineUser } from 'react-icons/ai'
+
 
 const Header = () => {
   const { userGlobal, userMail, favMoviesUser } = useContext(DataUserContext);
@@ -21,8 +23,9 @@ const Header = () => {
         <div className="container d-flex justify-content-end">
           {userGlobal ? (
             <>
-              <p className="me-3">{userMail}</p>
+              {/* <p className="me-3">{userMail}</p> */}
               <Logo />
+              <button type="button" class="btn btn-outline-warning me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title={`Estas validado como: ${userMail}`}><AiOutlineUser /></button>
               <ButtonFavs />
               <ButtonSearchs />
               <ButtonLogout />    

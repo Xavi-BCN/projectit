@@ -7,13 +7,11 @@ import ButtonDelFav from "../components/ButtonDelFav";
 import ButtonSchudule from "../components/ButtonSchudule"
 import { img_300 } from "../aplication/config";
 import { Loading } from '../components/Loading';
-import ButtonViewed from '../components/ButtonViewed';
 import ButtonInfoType from '../components/ButtonInfoType';
-
-
+import ButtonViewed from '../components/ButtonViewed';
 
 const Favorites = () => {
-  const { userMail, favMoviesUser, loadfavsUser, showLoading, setShowLoading } = useContext(DataUserContext)
+  const { userMail, favMoviesUser, loadfavsUser, today, showLoading, setShowLoading } = useContext(DataUserContext)
 
   useEffect(() => {  
   }, [favMoviesUser]);
@@ -24,7 +22,7 @@ const Favorites = () => {
 
   return (
     <>
-      <div className="pageTitle">Favoritos
+      <div className="pageTitle">Favoritas
         <img src={fav} alt="Fav" width="50px"
           // height="5%"
           className="d-inline-block align-text-top"
@@ -49,7 +47,7 @@ const Favorites = () => {
                 <ButtonInfoType type={item.type}/>
               </div>
               <div className='col'>
-                {/* <ButtonViewed /> */}
+                {today < item.estreno ? (<span className='text-warning' data-bs-toggle="tooltip" data-bs-placement="top" title="Fecha de estreno prevista">{item.estreno}</span>): (<ButtonViewed />)} 
               </div>
             </div>
             <div className='row' >

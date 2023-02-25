@@ -1,28 +1,26 @@
 import { useContext } from 'react';
 import { DataUserContext } from "../aplication/DataUserContext";
-import {AiFillHeart} from 'react-icons/ai'
+import { AiFillHeart } from 'react-icons/ai'
 
+const ButtonAddFav = ({ MovieId, MovieType, MovieTitle, MovieName, Poster, Date }) => {
+  const { saveFav, userMail } = useContext(DataUserContext)
 
-const ButtonAddFav = ({MovieId, MovieType, MovieTitle, MovieName, Poster, Date}) => {
-  const { saveFav, userMail, favMoviesUser } = useContext(DataUserContext)
-  
-  if(!MovieTitle){
+  if (!MovieTitle) {
     MovieTitle = MovieName
-  }else if(!MovieName){
+  } else if (!MovieName) {
     MovieTitle = MovieTitle
   }
 
-  
   let fav = { mail: userMail, title: MovieTitle, idpeli: MovieId, type: MovieType, poster: Poster, estreno: Date }
-  
- 
-   return (
+
+  return (
     <>
       <button
-        onClick={()=> saveFav(fav)}
+        onClick={() => saveFav(fav)}
         className="btn bg-black ms-2 "
         type="button"
-        ><AiFillHeart color='red' size={25}></AiFillHeart>
+        data-bs-toggle="tooltip" data-bs-placement="top" title="Añadir a favoritas"
+      ><AiFillHeart color='red' size={25}></AiFillHeart>
       </button>
     </>
   )

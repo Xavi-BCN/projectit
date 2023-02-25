@@ -41,6 +41,7 @@ export const DataUserContextProvider = ({ children }) => {
   const Spain = "ES";
   const sortM = "primary_release_date.desc";
   const sortTV = "popularity.desc";
+  let today;
 
   /* const getRES = async (media_type) => {
     // https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1
@@ -106,14 +107,15 @@ export const DataUserContextProvider = ({ children }) => {
   let year = current.getFullYear(); 
   let month = current.getMonth() + 1;
   let day = current.getDate();
-  
-  
+    
   if( month < 10 ) {
     month = '0'+ month
   }
   if( day < 10 ) {
     day = '0'+ day
   } 
+
+  today = year + '-' + month + '-' + day;
 
   const getComing = async () => {
     const { data } = await axios.get(`${baseURL}/discover/movie?api_key=${apiKey}&language=${language_es}&region=ES&primary_release_date.gte=${year}-${month}-${day}&primary_release_date.lte=${year+3}-12-31&with_original_language=en|fr|es|de|pt|fr|it&sort_by=primary_release_date.asc&page=${page}`);
@@ -225,10 +227,10 @@ export const DataUserContextProvider = ({ children }) => {
     }
   }
 
-
   return (
     <DataUserContext.Provider
       value={{
+        today,
         baseURL,
         apiKey,
         language_es,

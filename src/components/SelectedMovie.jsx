@@ -36,7 +36,7 @@ const SelectedMovie = () => {
   console.log(movie);
  
   return (
-    <div className="container">
+    <div className="container mt-5">
       {movie ? (
         <div
           className="viewtrailer rounded"
@@ -44,9 +44,9 @@ const SelectedMovie = () => {
             backgroundImage: `url("${img_path}${movie.backdrop_path || movie.poster_path}")`,
           }}
         >
-          <div className="bg-white ">
+          {/* <div className="bg-white "> */}
 
-          //*** ALBERT ******* */ PENDENT DE AVERIGUAR (FUNCIONA ARA SI ARA NO) 
+         
 
             {/* {console.log(MovieType)} */}
             {/*  {movie.production_companies && movie.production_companies.length === 0 
@@ -58,7 +58,10 @@ const SelectedMovie = () => {
               :
               (<></>)
             } */}
-          </div>
+          {/* </div> */}
+
+
+
           <div className="row p-2">
             <div className="col">
               <div className="opacity-50 bg-black p-2 rounded mb-3 ">
@@ -98,6 +101,7 @@ const SelectedMovie = () => {
                 className="btn btn-info "
                 onClick={() => window.open(movie.homepage, "_blank")}
                 type="button"
+                data-bs-toggle="tooltip" data-bs-placement="top" title="Enlaza con su web"
               >
                 Web Oficial
               </button>
