@@ -2,6 +2,11 @@ body{
     background-color: black;
 }
 
+.container-video{
+    box-shadow: 0 0 20px 10px rgb(0, 140, 255);
+    transition: box-shadow 0.5s ease;
+}
+
 .viewtrailer{
     min-height: 700px;
     background-size: cover;

@@ -42,24 +42,6 @@ const SelectedMovie = () => {
             backgroundImage: `url("${img_path}${movie.backdrop_path || movie.poster_path}")`,
           }}
         >
-          <div className="bg-white ">
-            {MovieType === "movie" &&
-              (!Boolean(movie?.production_companies?.length)
-                ? (<>Sin info de productora</>)
-                : (<img className='p-2' width={100} src={`${img_path}${movie.production_companies[0].logo_path}`} alt="e" />)
-              )
-            }
-            {MovieType === "tv" &&
-              (<>
-                {(!Boolean(movie?.production_companies?.length)
-                  ? (<>Sin info de productora</>)
-                  : (<img className='p-2' width={100} src={`${img_path}${movie.production_companies[0].logo_path}`} alt="e" />)
-                )}
-                {(Boolean(movie?.networks?.length) &&
-                  (<img className='p-2' width={100} src={`${img_path}${movie.networks[0].logo_path}`} alt="" />))}
-              </>)
-            }
-          </div>
           <div className="row p-2">
             <div className="col">
               <div className="opacity-50 bg-black p-2 rounded mb-3 ">
@@ -126,9 +108,9 @@ const SelectedMovie = () => {
               <></>
             )}
           </div>
-          <div className="col-11 col-md-8 col-lg-7 mt-sm-2 mt-2 mx-auto">
+          <div className="col-11 col-md-8 col-lg-7 mt-sm-2 mt-2 mx-auto ">
             {trailer ? (
-              <div className="ratio ratio-16x9">
+              <div className="ratio ratio-16x9 mt-5 mb-5 container-video">
                 <YouTube
                   videoId={trailer.key}
                   className="reproductor container"
@@ -155,6 +137,27 @@ const SelectedMovie = () => {
               </h6>
             )}
           </div>
+
+          <div className="d-flex justify-content-center mb-2 bg-info bg-opacity-50 rounded w-50 mx-auto">
+            {MovieType === "movie" &&
+              (!Boolean(movie?.production_companies?.length)
+                ? (<>Sin info de productora</>)
+                : (<img className='p-2 ' width={100} src={`${img_path}${movie.production_companies[0].logo_path}`} alt="e" />)
+              )
+            }
+            {MovieType === "tv" &&
+              (<>
+                {(!Boolean(movie?.production_companies?.length)
+                  ? (<>Sin info de productora</>)
+                  : (<img className='p-2' width={100} src={`${img_path}${movie.production_companies[0].logo_path}`} alt="e" />)
+                )}
+                {(Boolean(movie?.networks?.length) &&
+                  (<img className='p-2 ' width={100} src={`${img_path}${movie.networks[0].logo_path}`} alt="" />))}
+              </>)
+            }
+          </div>
+
+
         </div>
       ) : (
         <></>
