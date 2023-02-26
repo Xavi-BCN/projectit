@@ -7,7 +7,7 @@ import CustomPagination from '../components/CustomPagination';
 import '../styles/Trending.css'
 
 const Trending = () => {
-  const { userGlobal, setTrending, trending, page, setPage, setNumOfPages, numOfpages, baseURL, apiKey, language_es, loadfavsUser } = useContext(DataUserContext);
+  const { userGlobal, setTrending, trending, page, setPage, setNumOfPages, numOfpages, baseURL, apiKey, language_es } = useContext(DataUserContext);
 
   const getTrending = async () => {
     const { data } = await axios.get(`${baseURL}/trending/all/day?api_key=${apiKey}&language=${language_es}&sort_by=primary_release_date.asc&page=${page}`);
@@ -45,6 +45,4 @@ const Trending = () => {
     </>
   )
 }
-export default Trending
-
-
+export default Trending;

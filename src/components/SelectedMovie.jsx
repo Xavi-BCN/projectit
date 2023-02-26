@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { DataUserContext } from "../aplication/DataUserContext";
-import { Badge } from "@mui/material";
 import ButtonAddFav from "./ButtonAddFav";
 import ButtonShareByMail from "./ButtonShareByMail";
 import "../styles/SelectedMovie.css";
 import YouTube from "react-youtube";
+import ButtonViewQR from "./ButtonViewQR";
 
 const SelectedMovie = () => {
   const {
@@ -18,7 +18,7 @@ const SelectedMovie = () => {
     setValueMenu,
   } = useContext(DataUserContext);
   const { MovieId, MovieType } = useParams();
-  
+
   useEffect(() => {
     getMovie(MovieId, MovieType);
     setValueMenu(5);
@@ -33,8 +33,6 @@ const SelectedMovie = () => {
     }
   }
 
-  console.log(movie);
- 
   return (
     <div className="container mt-5">
       {movie ? (
@@ -45,32 +43,23 @@ const SelectedMovie = () => {
           }}
         >
           <div className="bg-white ">
-
-         
-
-            {console.log(MovieType)}
-            {/* For movies */}
-             {MovieType === "movie" && 
-              (!Boolean(movie?.production_companies?.length) 
-                  ? (<>Sin info de productora</>)
-                  :(<img className='p-2' width={100} src={`${img_path}${movie.production_companies[0].logo_path}`} alt="e" />)
+            {MovieType === "movie" &&
+              (!Boolean(movie?.production_companies?.length)
+                ? (<>Sin info de productora</>)
+                : (<img className='p-2' width={100} src={`${img_path}${movie.production_companies[0].logo_path}`} alt="e" />)
               )
-             }
-             {/* For TV */}
-             {MovieType === "tv" && 
-             (<>
-              {(!Boolean(movie?.production_companies?.length) 
+            }
+            {MovieType === "tv" &&
+              (<>
+                {(!Boolean(movie?.production_companies?.length)
                   ? (<>Sin info de productora</>)
-                  :(<img className='p-2' width={100} src={`${img_path}${movie.production_companies[0].logo_path}`} alt="e" />)
-              )}
-              {(Boolean(movie?.networks?.length) &&
-              (<img className='p-2' width={100} src={`${img_path}${movie.networks[0].logo_path}`} alt="" />))}
-            </>)
+                  : (<img className='p-2' width={100} src={`${img_path}${movie.production_companies[0].logo_path}`} alt="e" />)
+                )}
+                {(Boolean(movie?.networks?.length) &&
+                  (<img className='p-2' width={100} src={`${img_path}${movie.networks[0].logo_path}`} alt="" />))}
+              </>)
             }
           </div>
-
-
-
           <div className="row p-2">
             <div className="col">
               <div className="opacity-50 bg-black p-2 rounded mb-3 ">
@@ -102,10 +91,6 @@ const SelectedMovie = () => {
           </div>
           <div className="d-flex justify-content-center">
             {movie.homepage ? (
-              
-              
-
-
               <button
                 className="btn btn-info "
                 onClick={() => window.open(movie.homepage, "_blank")}
@@ -118,35 +103,29 @@ const SelectedMovie = () => {
               <label className="bg-danger p-1 rounded ms-1" type="text">
                 Sin Web
               </label>
-
-
-
-
             )}
-            
-              {userGlobal ? (
-                <>
-                  {checkfav() ? (
-                    <></>
-                  ) : (
-                    <ButtonAddFav
-                      MovieId={MovieId}
-                      MovieType={MovieType}
-                      MovieTitle={movie.title}
-                      MovieName={movie.name}
-                      Poster={movie.backdrop_path}
-                      Date={movie.release_date}
-                    />
-                  )}
-                  <ButtonShareByMail MovieId={MovieId} MovieType={MovieType} />
-                  {/* <ButtonShareByWhatsapp /> */}
-                </>
-              ) : (
-                <></>
-              )}
-            
+            {userGlobal ? (
+              <>
+                {checkfav() ? (
+                  <></>
+                ) : (
+                  <ButtonAddFav
+                    MovieId={MovieId}
+                    MovieType={MovieType}
+                    MovieTitle={movie.title}
+                    MovieName={movie.name}
+                    Poster={movie.backdrop_path}
+                    Date={movie.release_date}
+                  />
+                )}
+                <ButtonShareByMail MovieId={MovieId} MovieType={MovieType} />
+                <ButtonViewQR MovieId={MovieId} MovieType={MovieType} />
+                {/* <ButtonShareByWhatsapp /> */}
+              </>
+            ) : (
+              <></>
+            )}
           </div>
-
           <div className="col-11 col-md-8 col-lg-7 mt-sm-2 mt-2 mx-auto">
             {trailer ? (
               <div className="ratio ratio-16x9">
@@ -183,5 +162,4 @@ const SelectedMovie = () => {
     </div>
   );
 };
-
 export default SelectedMovie;
