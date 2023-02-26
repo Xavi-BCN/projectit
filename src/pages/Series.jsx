@@ -19,7 +19,7 @@ const Series = () => {
     getSeries()
   }, [page, genreforURL])
 
-  if (!userGlobal) {
+  if (userGlobal === "") {
     TimedKO('Hace falta ser usuario registrado para ver series de TV!', 'warning')
     return <Navigate to='/Wellcome' />
   }

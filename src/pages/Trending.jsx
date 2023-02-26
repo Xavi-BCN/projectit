@@ -17,7 +17,7 @@ const Trending = () => {
     setTrending(data.results)
   }
 
-  if (!userGlobal) {
+  if (userGlobal === "") {
     TimedKO('Sin estar registrado solo verás 1 pag.', 'warning')
   }
 

@@ -14,12 +14,11 @@ useEffect(() => {
   setSelectedGenres([])
 }, [])
 
-
   useEffect(() => {
     getMovies()
   }, [page, genreforURL])
 
-  if (!userGlobal) {
+  if (userGlobal === "") {
     TimedKO('Hace falta ser usuario registrado para ver películas!', 'warning')
     return <Navigate to='/Wellcome' />
   }

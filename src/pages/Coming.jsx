@@ -18,7 +18,7 @@ const Coming = () => {
     }
   },[page])
 
-  if (!userGlobal) {
+  if (userGlobal === "") {
     TimedKO('Hace falta ser usuario registrado para ver próximos estrenos!', 'warning')
     return <Navigate to='/Wellcome' />
   }
