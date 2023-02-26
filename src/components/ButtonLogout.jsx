@@ -8,7 +8,7 @@ const auth = getAuth(firebaseApp);
 const ButtonLogout = () => {
 
   const navigate = useNavigate();
-  const { setFavMoviesUser } = useContext(DataUserContext)
+  const { setFavMoviesUser, setValueMenu } = useContext(DataUserContext)
 
   return (
     <>
@@ -17,6 +17,7 @@ const ButtonLogout = () => {
           setFavMoviesUser([])
           signOut(auth);
           navigate("/wellcome");
+          setValueMenu(5);
         }}
         className="btn btn-danger"
         type="button"
