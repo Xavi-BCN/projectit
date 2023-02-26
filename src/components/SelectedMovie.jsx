@@ -150,8 +150,8 @@ const SelectedMovie = () => {
                 />
               </div>
             ) : (
-              <h6 className="text-danger fw-bold w-25">
-                Lo siento, trailer no disponible
+              <h6 className="text-danger fw-bold text-center bg-light rounded">
+                **** Lo siento, trailer no disponible ***
               </h6>
             )}
           </div>

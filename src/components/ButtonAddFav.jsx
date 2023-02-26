@@ -17,7 +17,7 @@ const ButtonAddFav = ({ MovieId, MovieType, MovieTitle, MovieName, Poster, Date 
     <>
       <button
         onClick={() => saveFav(fav)}
-        className="btn bg-black ms-2 "
+        className="btn bg-white ms-2 "
         type="button"
         data-bs-toggle="tooltip" data-bs-placement="top" title="Añadir a favoritas"
       ><AiFillHeart color='red' size={25}></AiFillHeart>
