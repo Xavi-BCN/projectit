@@ -1,8 +1,8 @@
-import Modal from 'react-bootstrap/Modal';
+import Modal from "react-bootstrap/Modal";
 import QRCode from "react-qr-code";
 import { Button } from "react-bootstrap";
-import { useState } from 'react';
-import { ImQrcode } from "react-icons/im"
+import { useState } from "react";
+import { ImQrcode } from "react-icons/im";
 
 function QRModal(props) {
   return (
@@ -13,12 +13,12 @@ function QRModal(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Código QR
-        </Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">Código QR</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <QRCode value={`https://xcl.es/#/SelectedMovie/${props.movie}/${props.type}`} />
+        <QRCode
+          value={`https://xcl.es/#/SelectedMovie/${props.movie}/${props.type}`}
+        />
       </Modal.Body>
     </Modal>
   );
@@ -30,10 +30,13 @@ function ButtonViewQR({ MovieId, MovieType }) {
   return (
     <>
       <Button
-        className='ms-2'
+        className="ms-2"
         variant="info"
         onClick={() => setModalShow(true)}
-        data-bs-toggle="tooltip" data-bs-placement="top" title="Mostrar código QR para compartir">
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        title="Mostrar código QR para compartir"
+      >
         <ImQrcode />
       </Button>
 
@@ -47,4 +50,3 @@ function ButtonViewQR({ MovieId, MovieType }) {
   );
 }
 export default ButtonViewQR;
-

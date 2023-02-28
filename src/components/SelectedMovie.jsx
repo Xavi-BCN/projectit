@@ -39,7 +39,9 @@ const SelectedMovie = () => {
         <div
           className="viewtrailer rounded"
           style={{
-            backgroundImage: `url("${img_path}${movie.backdrop_path || movie.poster_path}")`,
+            backgroundImage: `url("${img_path}${
+              movie.backdrop_path || movie.poster_path
+            }")`,
           }}
         >
           <div className="row p-2">
@@ -77,7 +79,9 @@ const SelectedMovie = () => {
                 className="btn btn-info "
                 onClick={() => window.open(movie.homepage, "_blank")}
                 type="button"
-                data-bs-toggle="tooltip" data-bs-placement="top" title="Enlaza con su web"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Enlaza con su web"
               >
                 Web Oficial
               </button>
@@ -102,7 +106,6 @@ const SelectedMovie = () => {
                 )}
                 <ButtonShareByMail MovieId={MovieId} MovieType={MovieType} />
                 <ButtonViewQR MovieId={MovieId} MovieType={MovieType} />
-                {/* <ButtonShareByWhatsapp /> */}
               </>
             ) : (
               <></>
@@ -140,24 +143,39 @@ const SelectedMovie = () => {
 
           <div className="d-flex justify-content-center mb-2 bg-info bg-opacity-50 rounded w-50 mx-auto">
             {MovieType === "movie" &&
-              (!Boolean(movie?.production_companies?.length)
-                ? (<>Sin info de productora</>)
-                : (<img className='p-2 ' width={100} src={`${img_path}${movie.production_companies[0].logo_path}`} alt="e" />)
-              )
-            }
-            {MovieType === "tv" &&
-              (<>
-                {(!Boolean(movie?.production_companies?.length)
-                  ? (<>Sin info de productora</>)
-                  : (<img className='p-2' width={100} src={`${img_path}${movie.production_companies[0].logo_path}`} alt="e" />)
+              (!Boolean(movie?.production_companies?.length) ? (
+                <>Sin info de productora</>
+              ) : (
+                <img
+                  className="p-2 "
+                  width={100}
+                  src={`${img_path}${movie.production_companies[0].logo_path}`}
+                  alt="e"
+                />
+              ))}
+            {MovieType === "tv" && (
+              <>
+                {!Boolean(movie?.production_companies?.length) ? (
+                  <>Sin info de productora</>
+                ) : (
+                  <img
+                    className="p-2"
+                    width={100}
+                    src={`${img_path}${movie.production_companies[0].logo_path}`}
+                    alt="e"
+                  />
                 )}
-                {(Boolean(movie?.networks?.length) &&
-                  (<img className='p-2 ' width={100} src={`${img_path}${movie.networks[0].logo_path}`} alt="" />))}
-              </>)
-            }
+                {Boolean(movie?.networks?.length) && (
+                  <img
+                    className="p-2 "
+                    width={100}
+                    src={`${img_path}${movie.networks[0].logo_path}`}
+                    alt=""
+                  />
+                )}
+              </>
+            )}
           </div>
-
-
         </div>
       ) : (
         <></>

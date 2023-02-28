@@ -3,7 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import { Navigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { DataUserContext } from "../aplication/DataUserContext";
-import { msgKO, TimedOK } from '../aplication/messages'
+import { msgKO, TimedOK } from "../aplication/messages";
 import { firebaseApp } from "../aplication/firebaseConfig";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 const auth = getAuth(firebaseApp);
@@ -18,7 +18,7 @@ function LoginModal(props) {
       .then((res) => {
         setUserMail(mail);
         e.target.reset();
-        TimedOK('Resgistrado correctamente')
+        TimedOK("Resgistrado correctamente");
       })
       .catch((err) => {
         msgKO(err.message);
@@ -51,7 +51,11 @@ function LoginModal(props) {
             </Form.Group>
             <Form.Group controlId="formPswd">
               <div className="w-75 mx-auto mb-3">
-                <Form.Control required type="password" placeholder="Password (mínimo 6 caracteres)" />
+                <Form.Control
+                  required
+                  type="password"
+                  placeholder="Password (mínimo 6 caracteres)"
+                />
               </div>
             </Form.Group>
             <div className="w-50 mx-auto mb-3">
