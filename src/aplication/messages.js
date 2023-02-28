@@ -1,50 +1,40 @@
-import Swal from '../../node_modules/sweetalert2/dist/sweetalert2'
-import '../../node_modules/sweetalert2/dist/sweetalert2.css'
+import Swal from "../../node_modules/sweetalert2/dist/sweetalert2";
+import "../../node_modules/sweetalert2/dist/sweetalert2.css";
 
+export const msgOK = (messageText) => {
+  Swal.fire("¡Perfecto!", messageText, "success");
+};
 
-export const msgOK = (messageText)=>{
-    Swal.fire(
-        '¡Perfecto!',
-        messageText,
-        'success'
-      )
-}
+export const msgKO = (messageText) => {
+  Swal.fire("¡Hubo un error!", messageText, "error");
+};
 
-export const msgKO = (messageText)=>{
-  Swal.fire(
-      '¡Hubo un error!',
-      messageText,
-      'error'
-    )
-}
-
-export const TimedOK = (messageText)=>{
+export const TimedOK = (messageText) => {
   Swal.fire({
-    position: 'center',
-    icon: 'success',
+    position: "center",
+    icon: "success",
     title: `${messageText}`,
     showConfirmButton: false,
-    timer: 3000
-  })
-}
+    timer: 3000,
+  });
+};
 
-export const TimedOKAddFav = (messageText)=>{
+export const TimedOKAddFav = (messageText) => {
   Swal.fire({
-    position: 'center',
-    icon: 'success',
+    position: "center",
+    icon: "success",
     title: `${messageText}`,
     showConfirmButton: false,
-    timer: 1000
-  })
-}
+    timer: 1000,
+  });
+};
 
-export const TimedKO = (messageText,icon)=>{
+export const TimedKO = (messageText, icon) => {
   Swal.fire({
-    position: 'center',
+    position: "center",
     icon: `${icon}`,
     title: `${messageText}`,
     showConfirmButton: false,
-    timer: 3000
-  })
-}
-
+    timer: 3000,
+  });
+};
