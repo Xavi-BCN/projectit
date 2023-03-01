@@ -103,4 +103,3 @@ const Favorites = () => {
 
 export default Favorites;
 
-/* window.location.href = `mailto:?subject=Te comparto esta peli por si es de tu interes&body=https://xcl.es/#/SelectedMovie/${MovieId}/${MovieType}`; */
