@@ -92,7 +92,7 @@ const Search = () => {
             style={{ paddingBottom: 5 }}
           >
             <Tab style={{ width: "50%", color: "white" }} label="Películas" />
-            <Tab style={{ width: "50%", color: "white" }} label="Séries" />
+            <Tab style={{ width: "50%", color: "white" }} label="Series" />
           </Tabs>
         </ThemeProvider>
       </div>
