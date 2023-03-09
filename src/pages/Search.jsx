@@ -117,7 +117,7 @@ const Search = () => {
         {searchText &&
           !contentSearch &&
           (typeSearch ? (
-            <h2> No se han encontrado séries</h2>
+            <h2> No se han encontrado series</h2>
           ) : (
             <h2> No se han encontrado películas</h2>
           ))}

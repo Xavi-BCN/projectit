@@ -22,7 +22,7 @@ const SingleCard = ({ id, poster, title, date, media_type, vote_average }) => {
           <div className="text-center">
             <h6 className="title-movie text-warning mt-1">{title}</h6>
             <h6 className="text-light">
-              {media_type === "tv" ? "TV Séries" : "Movie"}
+              {media_type === "tv" ? "TV Series" : "Movie"}
             </h6>
             <h5 className="text-info">{date}</h5>
           </div>
